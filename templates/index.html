@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipo de número</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card" aria-labelledby="page-title">
+            <div class="eyebrow">Ejercicio 6105</div>
+            <h1 id="page-title">Tipo de número</h1>
+            <p class="intro">Descubre si un número es positivo, negativo o cero, y si es par o impar.</p>
+
+            <form method="POST" class="number-form">
+                <label for="number">Introduce un número</label>
+                <div class="form-controls">
+                    <input type="number" id="number" name="number" step="1" required>
+                    <button type="submit">Comprobar</button>
+                </div>
+            </form>
+
+            {% if result %}
+                <section class="result" aria-live="polite" aria-labelledby="result-title">
+                    <h2 id="result-title">Resultado</h2>
+                    <div class="result-values">
+                        <p><span>Signo</span><strong>{{ result.signo | capitalize }}</strong></p>
+                        <p><span>Tipo</span><strong>{{ result.tipo | capitalize }}</strong></p>
+                    </div>
+                </section>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

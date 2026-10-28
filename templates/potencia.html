@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potencias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card" aria-labelledby="page-title">
+            <div class="eyebrow">Ejercicio 6105_2</div>
+            <h1 id="page-title">Potencias</h1>
+            <p class="intro">Introduce la base y el exponente (exponente defaul 2)</p>
+
+            <form method="POST" class="number-form">
+                <label for="base">Introduce la base</label>
+                <div class="form-controls">
+                    <input type="number" id="base" name="base" step="1" required>
+                </div>
+                <label for="exponente">Introduce el exponente</label>
+                <div class="form-controls">
+                    <input type="number" id="exponente" name="exponente" step="1" required>
+                    <button type="submit">Generar</button>
+                </div>
+            </form>
+
+            {% if result %}
+                <section class="result" aria-live="polite" aria-labelledby="result-title">
+                    <h2 id="result-title">Resultado</h2>
+                    <div class="result-values">
+                        <p>{{ result }}</p>
+                        <p><span>Base</span><strong>{{ base }}</strong></p>
+                        <p><span>Exponente</span><strong>{{ exponente }}</strong></p>
+                        
+                    </div>
+                </section>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
