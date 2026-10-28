@@ -1,7 +1,14 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
+def login_redirect():
+    return redirect('/login/')
+
+@app.route('/home/', methods=['GET', 'POST'])
+def home():
+    return render_template('home.html')
+
 @app.route('/ejercicio1/', methods=['GET', 'POST'])
 def ejercicio1():
     result = None
@@ -17,6 +24,7 @@ def ejercicio1():
 
 @app.route('/ejercicio2/', methods=['GET', 'POST'])
 def ejercicio2():
+  
     base = ""
     exponente = ""
     result = None
@@ -51,6 +59,24 @@ def estadisticas():
             result = {"sumatorio": sumatorio, "promedio": promedio, "mayor": mayor, "menor": menor}
 
     return render_template('estadisticas.html', lista=lista, result=result)
+
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    usuario = "mihi@gmail.com"
+    password = "1234"
+
+    if request.method == 'POST':
+        input_usuario = request.form.get('usuario')
+        input_password = request.form.get('password')
+
+        if input_usuario == usuario and input_password == password:
+            mensaje = "Inicio de sesión exitoso"
+            return redirect('/home/')
+        else:
+            error ="Usuario o contraseña incorrectos" 
+    return render_template('login.html', error=error if 'error' in locals() else None)
+
 
 
 if __name__ == '__main__':

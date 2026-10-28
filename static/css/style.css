@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+.error {
+    color: #b81919;
+    margin-bottom: 1rem;
+}
+
 body {
     min-width: 320px;
     min-height: 100vh;
@@ -149,9 +154,54 @@ button:hover {
     font-size: 1.15rem;
 }
 
+.home-links {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.25rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e7e9f2;
+    border-radius: 0.75rem;
+    color: #5144bd;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.home-links a:hover {
+    transform: translateY(-1px);
+    background: #f5f4ff;
+}
+
+.home-links a:focus-visible {
+    outline: 3px solid rgba(101, 88, 211, 0.35);
+    outline-offset: 2px;
+}
+
+.home-links span {
+    color: #6b6d80;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
 @media (max-width: 420px) {
     .form-controls {
         flex-direction: column;
+    }
+
+    .home-links a {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     button {

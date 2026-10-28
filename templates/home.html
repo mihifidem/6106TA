@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Ejercicios de funciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card" aria-labelledby="page-title">
+            <div class="eyebrow">Ejercicios 6106</div>
+            <h1 id="page-title">Página de inicio</h1>
+            <p class="intro">Elige un ejercicio para empezar.</p>
+
+            <nav aria-label="Rutas de la aplicación">
+                <ul class="home-links">
+                    <li>
+                        <a href="/">Logout <span>/</span></a>
+                    </li>
+                    <li>
+                        <a href="/ejercicio1/">Ejercicio 1: tipo de número <span>/ejercicio1/</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('ejercicio2') }}">Ejercicio 2: potencias <span>/ejercicio2/</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('estadisticas') }}">Ejercicio 3: estadísticas <span>/ejercicio3/</span></a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </section>
+    </main>
+     {% if mensaje %}
+                <p class="error">{{ mensaje }}</p>
+            {% endif %}
+        {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+</body>
+</html>
